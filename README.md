@@ -93,11 +93,12 @@
   ```
 
     
+- #### Compilation
 
-- #### Start the compilation process by typing `make -j8`
-- #### Install OpenCV with `sudo make install`  
-- #### To verify the installation by typing `pkg-config --modversion opencv4`
-- #### Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
+    * Start the compilation process by typing `make -j8`
+    * Install OpenCV with `sudo make install`  
+    * To verify the installation by typing `pkg-config --modversion opencv4`
+    * Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
 
 ## Install Darknet:
 
