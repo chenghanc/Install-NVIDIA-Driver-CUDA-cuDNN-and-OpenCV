@@ -20,12 +20,28 @@
     
 ## Install CUDA:
 
-- #### Go to https://developer.nvidia.com/cuda-downloads and follow the instructions according to your OS 
-Operating System Linux, Architecture x86_64, Distribution Ubuntu and Version 20.04
+- #### Go to https://developer.nvidia.com/cuda-downloads and follow the instructions according to your OS
+- #### Operating System: Linux 
+- #### Architecture: x86_64 
+- #### Distribution: Ubuntu 
+- #### Version: 20.04
     
     * `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin`
     * `sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600`
     * `wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda-repo-ubuntu2004-11-1-local_11.1.1-455.32.00-1_amd64.deb`
+    * `sudo dpkg -i cuda-repo-ubuntu2004-11-1-local_11.1.1-455.32.00-1_amd64.deb`
+    * `sudo apt-key add /var/cuda-repo-ubuntu2004-11-1-local/7fa2af80.pub`
+    * `sudo apt-get update`
+    * `sudo apt-get -y install cuda`
+
+- #### Add following in `~/.bashrc`
+ 
+    ```
+    #Darknet
+    export PATH=/usr/local/cuda-11.1/bin${PATH:+:$PATH}}
+    export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda-11.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    ```
+    
     
 
 ## Install cuDNN:
