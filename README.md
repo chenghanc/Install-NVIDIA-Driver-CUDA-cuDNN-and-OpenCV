@@ -70,8 +70,15 @@
     libtbb2 libtbb-dev libdc1394-22-dev libopenexr-dev \
     libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
     ```
-        
+ 
     * Clone the OpenCV and OpenCV contrib repositories
+    
+    ```
+    mkdir ~/opencv_build && cd ~/opencv_build
+    git clone https://github.com/opencv/opencv.git
+    git clone https://github.com/opencv/opencv_contrib.git
+    ```
+
     
     ```
     mkdir ~/opencv_build && cd ~/opencv_build
