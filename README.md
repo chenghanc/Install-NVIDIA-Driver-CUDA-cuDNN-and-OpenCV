@@ -129,10 +129,43 @@
 
 - #### Remarks
 
-    * The installation is tested on GeForce RTX 2080
+    * The installation is tested on GeForce RTX 2080 Super
     * Need to remove older compute capability: **`-gencode arch=compute_30,code=sm_30`**
     * Add new compute capability: **`ARCH= -gencode arch=compute_75,code=[sm_75,compute_75]`**
 
 ## Test the Darknet Environment
+
+- #### We can test a single image by running the command
+
+    * `./darknet detector test cfg/coco.data cfg/yolov4.cfg ../weights/yolov4.weights -thresh 0.25 -dont_show data/dog.jpg`
+    
+- #### If everything works fine, it will show something like this at beginning
+
+  ```
+  CUDA-version: 11010 (11010), cuDNN: 8.0.5, GPU count: 1  
+  OpenCV version: 4.5.1
+  0 : compute_capability = 750, cudnn_half = 0, GPU: GeForce RTX 2080 Super with Max-Q Design 
+  ```
+  
+  ```
+  Done! Loaded 162 layers from weights-file 
+  Detection layer: 139 - type = 28 
+  Detection layer: 150 - type = 28 
+  Detection layer: 161 - type = 28 
+  data/dog.jpg: Predicted in 361.098000 milli-seconds.
+  bicycle: 92%
+  dog: 98%
+  truck: 92%
+  pottedplant: 33%
+  ```
+
+
+
+- #### Training
+
+
+
+
+
 
 
