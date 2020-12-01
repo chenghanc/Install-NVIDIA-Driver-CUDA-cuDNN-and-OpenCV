@@ -60,7 +60,7 @@
 
 - #### Perform the following steps to install the latest OpenCV version from the source
 
-    * Install dependencies
+- #### Install dependencies
     
     ```
     sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
@@ -71,7 +71,7 @@
     libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
     ```
  
-    * Clone the OpenCV and OpenCV contrib repositories
+- #### Clone the OpenCV and OpenCV contrib repositories
     
     ```
     mkdir ~/opencv_build && cd ~/opencv_build
@@ -79,21 +79,14 @@
     git clone https://github.com/opencv/opencv_contrib.git
     ```
 
-    
-    ```
-    mkdir ~/opencv_build && cd ~/opencv_build
-    git clone https://github.com/opencv/opencv.git
-    git clone https://github.com/opencv/opencv_contrib.git
-    ```
-    
-    * Create a temporary build directory
+- #### Create a temporary build directory
     
     ```
     cd ~/opencv_build/opencv
     mkdir -p build && cd build
     ```
     
-    * Set up the OpenCV build with CMake
+- #### Set up the OpenCV build with CMake
     
     ```
     cmake -D CMAKE_BUILD_TYPE=RELEASE \
