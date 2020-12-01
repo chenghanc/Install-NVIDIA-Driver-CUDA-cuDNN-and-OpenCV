@@ -59,7 +59,7 @@
 ## Install OpenCV from the source:
 
 - #### Install dependencies
-    
+ 
     ```
     sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
     libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
@@ -68,7 +68,7 @@
     libtbb2 libtbb-dev libdc1394-22-dev libopenexr-dev \
     libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
     ```
- 
+    
 - #### Clone the OpenCV and OpenCV contrib repositories
     
     ```
@@ -83,7 +83,7 @@
     cd ~/opencv_build/opencv
     mkdir -p build && cd build
     ```
-    
+
 - #### Set up the OpenCV build with CMake
     
     ```
@@ -98,6 +98,7 @@
     
 - #### Start the compilation process by typing `make -j8`
 - #### Install OpenCV with `sudo make install`  
+- #### To verify the installation by typing `pkg-config --modversion opencv4`
 - #### Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
 
 ## Install Darknet:
