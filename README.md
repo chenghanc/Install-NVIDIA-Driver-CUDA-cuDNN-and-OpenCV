@@ -70,20 +70,16 @@
     ```
     
 - #### Clone the OpenCV and OpenCV contrib repositories
- 
-    ```
-    mkdir ~/opencv_build && cd ~/opencv_build
-    git clone https://github.com/opencv/opencv.git
-    git clone https://github.com/opencv/opencv_contrib.git
-    ```
-    
+
+    * `mkdir ~/opencv_build && cd ~/opencv_build`
+    * `git clone https://github.com/opencv/opencv.git`
+    * `git clone https://github.com/opencv/opencv_contrib.git`
+     
 - #### Create a temporary build directory
- 
-    ```
-    cd ~/opencv_build/opencv
-    mkdir -p build && cd build
-    ```
-    
+
+    * `cd ~/opencv_build/opencv`
+    * `mkdir -p build && cd build`
+     
 - #### Set up the OpenCV build with CMake
  
     ```
