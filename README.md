@@ -56,12 +56,51 @@
 
 - #### Check cuDNN version by typing `cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2`
 
-## Install OpenCV:
+## Install OpenCV from the source:
 
- #### Go to https://developer.nvidia.com/cuDNN and download `cudnn-11.1-linux-x64-v8.0.5.39.tgz`. Once downloaded, untar the file and copy the contents to their respective locations
+- #### Perform the following steps to install the latest OpenCV version from the source
 
-
-We can perform the downloading by running a **Jupyter notebook** from a remote server. Please visit https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook for more information
+    * Install dependencies
+    
+    ```
+    sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
+    libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
+    libxvidcore-dev libx264-dev libjpeg-dev libpng-dev libtiff-dev \
+    gfortran openexr libatlas-base-dev python3-dev python3-numpy \
+    libtbb2 libtbb-dev libdc1394-22-dev libopenexr-dev \
+    libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
+    ```
+        
+    * Clone the OpenCV and OpenCV contrib repositories
+    
+    ```
+    mkdir ~/opencv_build && cd ~/opencv_build
+    git clone https://github.com/opencv/opencv.git
+    git clone https://github.com/opencv/opencv_contrib.git
+    ```
+    
+    * Create a temporary build directory
+    
+    ```
+    cd ~/opencv_build/opencv
+    mkdir -p build && cd build
+    ```
+    
+    * Set up the OpenCV build with CMake
+    
+    ```
+    cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=ON \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D OPENCV_GENERATE_PKGCONFIG=ON \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \
+    -D BUILD_EXAMPLES=ON ..
+    ```
+    
+    * Start the compilation process by typing `make -j8`
+    * Install OpenCV with `sudo make install`  
+    * Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
 
 ## Install Darknet:
 
@@ -74,6 +113,6 @@ We can perform the downloading by running a **Jupyter notebook** from a remote s
     * `sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile` (optional)
     * `make -j12`
 
-
+## Test the Darknet Environment
 
 
