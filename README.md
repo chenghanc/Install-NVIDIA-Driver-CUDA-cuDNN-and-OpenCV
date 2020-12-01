@@ -22,10 +22,14 @@
 
 - #### Go to https://developer.nvidia.com/cuda-downloads and follow the instructions according to your OS
 
-    * **Operating System:** Linux
-    * **Architecture:** x86_64
-    * **Distribution:** Ubuntu
-    * **Version:** 20.04
+    * **Operating System:** 
+      * Linux
+    * **Architecture:** 
+      * x86_64
+    * **Distribution:** 
+      * Ubuntu
+    * **Version:** 
+      * 20.04
     * **Type**
     * `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin`
     * `sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600`
@@ -43,7 +47,9 @@
     export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda-11.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
     ```
     
-- #### Check CUDA version by typing `nvcc -V`
+- #### Check CUDA version by typing 
+
+    * `nvcc -V`
 
 ## Install cuDNN:
 
@@ -54,7 +60,9 @@
     * `sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64`
     * `sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*`
 
-- #### Check cuDNN version by typing `cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2`
+- #### Check cuDNN version by typing 
+
+    * `cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2`
 
 ## Install OpenCV from the source:
 
@@ -95,10 +103,13 @@
     
 - #### Compilation
 
-    * Start the compilation process by typing `make -j8`
-    * Install OpenCV with `sudo make install`  
-    * To verify the installation by typing `pkg-config --modversion opencv4`
-      * `Test Test`
+    * Start the compilation process by typing 
+      * `make -j8`
+    * Install OpenCV with 
+      * `sudo make install`  
+    * To verify the installation by typing 
+      * `pkg-config --modversion opencv4`
+      * Output `4.5.1`
     * Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
 
 ## Install Darknet:
