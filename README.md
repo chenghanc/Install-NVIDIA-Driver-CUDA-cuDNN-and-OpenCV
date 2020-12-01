@@ -139,7 +139,7 @@
 
     * `./darknet detector test cfg/coco.data cfg/yolov4.cfg ../weights/yolov4.weights -thresh 0.25 -dont_show data/dog.jpg`
     
-- #### If everything works fine, it will show something like this at beginning
+- #### If everything works fine, it will show something like this at beginning and end
 
   ```
   CUDA-version: 11010 (11010), cuDNN: 8.0.5, GPU count: 1  
@@ -159,13 +159,7 @@
   pottedplant: 33%
   ```
 
+- #### We can start Training on custom dataset by running the command
 
-
-- #### Training
-
-
-
-
-
-
+    * `./darknet detector train sun.data sunglasses-tiny512r1.cfg ../pretrain/yolov4-tiny.conv.29 -map -dont_show`
 
