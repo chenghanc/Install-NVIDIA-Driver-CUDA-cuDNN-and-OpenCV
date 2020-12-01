@@ -70,22 +70,22 @@
     ```
     
 - #### Clone the OpenCV and OpenCV contrib repositories
-    
+ 
     ```
     mkdir ~/opencv_build && cd ~/opencv_build
     git clone https://github.com/opencv/opencv.git
     git clone https://github.com/opencv/opencv_contrib.git
     ```
-
-- #### Create a temporary build directory
     
+- #### Create a temporary build directory
+ 
     ```
     cd ~/opencv_build/opencv
     mkdir -p build && cd build
     ```
-
-- #### Set up the OpenCV build with CMake
     
+- #### Set up the OpenCV build with CMake
+ 
     ```
     cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -96,6 +96,7 @@
     -D BUILD_EXAMPLES=ON ..
     ```
     
+
 - #### Start the compilation process by typing `make -j8`
 - #### Install OpenCV with `sudo make install`  
 - #### To verify the installation by typing `pkg-config --modversion opencv4`
