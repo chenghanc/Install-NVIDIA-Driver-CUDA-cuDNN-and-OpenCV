@@ -18,7 +18,9 @@
     * `sudo apt-get update`
     * `sudo apt-get install nvidia-driver-455`
 
-- #### Type `nvidia-smi` and see if NVIDIA Driver is installed correctly
+- #### Check and see if NVIDIA Driver is installed correctly
+
+    * `nvidia-smi`
 
 ## Install CUDA:
 
