@@ -127,6 +127,12 @@
     * `sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile` (optional)
     * `make -j12`
 
+- #### Remarks
+
+    * The installation is tested on GeForce RTX 2080
+    * Need to remove older compute capability: **`-gencode arch=compute_30,code=sm_30`**
+    * Add new compute capability: **`ARCH= -gencode arch=compute_75,code=[sm_75,compute_75]`**
+
 ## Test the Darknet Environment
 
 
