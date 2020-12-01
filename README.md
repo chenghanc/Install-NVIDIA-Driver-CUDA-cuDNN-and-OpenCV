@@ -58,8 +58,6 @@
 
 ## Install OpenCV from the source:
 
-- #### Perform the following steps to install the latest OpenCV version from the source
-
 - #### Install dependencies
     
     ```
@@ -98,9 +96,9 @@
     -D BUILD_EXAMPLES=ON ..
     ```
     
-    * Start the compilation process by typing `make -j8`
-    * Install OpenCV with `sudo make install`  
-    * Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
+- #### Start the compilation process by typing `make -j8`
+- #### Install OpenCV with `sudo make install`  
+- #### Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
 
 ## Install Darknet:
 
