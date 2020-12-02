@@ -161,5 +161,5 @@
 
 - #### We can start Training on custom dataset by running the command
 
-    * `./darknet detector train sun.data sunglasses-tiny512r1.cfg ../pretrain/yolov4-tiny.conv.29 -map -dont_show`
+    * `./darknet detector train sun.data sun.cfg yolov4-tiny.conv.29 -map -dont_show`
 
