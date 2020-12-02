@@ -166,9 +166,9 @@
 - #### Train on a remote server and watch mAP & Loss chart using local machine browser
 
     * Log-in to remote machine via an ssh command `ssh nechk@192.168.1.117`
-    * Train on custom dataset by running `./darknet detector train sun.data sun.cfg yolov4-tiny.conv.29 -map -dont_show -mjpeg_port 8090 > log.txt`
+    * Train on custom dataset by running 
+      * `./darknet detector train sun.data sun.cfg yolov4-tiny.conv.29 -map -dont_show -mjpeg_port 8090 > log.txt`
     * In your remote machine, the training uses the port XXXX=8090 which you specified
     * To watch mAP & Loss chart from your remote machine, type `http://192.168.1.117:8090/`
-    
     
     
