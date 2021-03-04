@@ -26,66 +26,46 @@
 
 By default, cuda libraries are installed in **/usr/local**. After installing all the CUDA versions you will find a respective folders for each one of the version with the name cuda pointing to the latest installed CUDA toolkit. In my case, I have installed versions 10.0 and 10.1, so my **/usr/local** lists the following:
 
-    ```
-    ...
-    cuda -> cuda-10.1
-    cuda-10.0
-    cuda-10.1
-    ...
-    ```
+  ```
+  cuda -> cuda-10.1
+  cuda-10.0
+  cuda-10.1
+  ```
 
+## Install cuDNN (8.0.5):
 
+- #### Go to https://developer.nvidia.com/cuDNN and download `cudnn-10.1-linux-x64-v8.0.5.39.tgz`. Once downloaded, untar the file and copy the contents to their respective locations
 
-
-
-- #### Add the following in `~/.bashrc`
- 
-    ```
-    #Darknet
-    export PATH=/usr/local/cuda-11.1/bin${PATH:+:$PATH}}
-    export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda-11.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-    ```
-    
-- #### Check CUDA version by typing 
-
-    * `nvcc -V`
-
-## Install cuDNN:
-
-- #### Go to https://developer.nvidia.com/cuDNN and download `cudnn-11.1-linux-x64-v8.0.5.39.tgz`. Once downloaded, untar the file and copy the contents to their respective locations
-
-    * `tar -xzvf cudnn-11.1-linux-x64-v8.0.5.39.tgz`
-    * `sudo cp cuda/include/cudnn*.h /usr/local/cuda/include`
-    * `sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64`
+    * `tar xvf cudnn-10.1-linux-x64-v8.0.5.39.tgz`
+    * `sudo cp cuda/include/cudnn* /usr/local/cuda/include/`
+    * `sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64/`
     * `sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*`
 
 - #### Check cuDNN version by typing 
 
     * `cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2`
 
+- #### Configure LD_LIBRARY_PATH by adding the following in `~/.bashrc`
+ 
+    ```
+    # DARKNET
+    export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
+    #export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    ```
+    
+- #### Check CUDA version by typing 
+
+    * `nvcc -V`
+
+
 ## Install OpenCV from the source:
 
 - #### Install dependencies
-
-  ```
-  sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
-    libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
-    libxvidcore-dev libx264-dev libjpeg-dev libpng-dev libtiff-dev \
-    gfortran openexr libatlas-base-dev python3-dev python3-numpy \
-    libtbb2 libtbb-dev libdc1394-22-dev libopenexr-dev \
-    libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
-  ```
     
 - #### Clone the OpenCV and OpenCV contrib repositories
-
-    * `mkdir ~/opencv_build && cd ~/opencv_build`
-    * `git clone https://github.com/opencv/opencv.git`
-    * `git clone https://github.com/opencv/opencv_contrib.git`
      
 - #### Create a temporary build directory
-
-    * `cd ~/opencv_build/opencv`
-    * `mkdir -p build && cd build`
      
 - #### Set up the OpenCV build with CMake
  
@@ -99,7 +79,6 @@ By default, cuda libraries are installed in **/usr/local**. After installing all
     -D BUILD_EXAMPLES=ON ..
   ```
 
-    
 - #### Compilation
 
     * Start the compilation process by typing 
