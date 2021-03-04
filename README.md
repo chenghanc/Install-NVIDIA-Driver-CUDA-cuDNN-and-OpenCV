@@ -1,28 +1,12 @@
-# Install NVIDIA Driver, CUDA, cuDNN and OpenCV on Ubuntu 20.04
+# Install the second CUDA Toolkit and cuDNN on the same machine (Ubuntu 18.04)
 
 ## Overview
 
-- #### Step 1: Install NVIDIA Driver
-- #### Step 2: Install CUDA
-- #### Step 3: Install cuDNN
-- #### Step 4: Install OpenCV
-- #### Step 5: Install Darknet
-- #### Step 6: Test the Darknet Training Environment
+- #### Step 1: Install the second CUDA Toolkit (10.1)
+- #### Step 2: Install the second cuDNN (8.0.5)
+- #### Step 3: Configure LD_LIBRARY_PATH
 
-## Install NVIDIA Driver:
-
-- #### Detect the model of your GPU card and the recommended Driver
-
-    * `ubuntu-drivers devices`
-    * `sudo add-apt-repository ppa:graphics-drivers/ppa`
-    * `sudo apt-get update`
-    * `sudo apt-get install nvidia-driver-455`
-
-- #### Check and see if NVIDIA Driver is installed correctly
-
-    * `nvidia-smi`
-
-## Install CUDA:
+## Install CUDA (10.1):
 
 - #### Go to https://developer.nvidia.com/cuda-downloads and follow the instructions according to your OS
 
@@ -33,15 +17,26 @@
     * **Distribution:** 
       * `Ubuntu`
     * **Version:** 
-      * `20.04`
+      * `18.04`
     * **Type**
-    * `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin`
-    * `sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600`
-    * `wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda-repo-ubuntu2004-11-1-local_11.1.1-455.32.00-1_amd64.deb`
-    * `sudo dpkg -i cuda-repo-ubuntu2004-11-1-local_11.1.1-455.32.00-1_amd64.deb`
-    * `sudo apt-key add /var/cuda-repo-ubuntu2004-11-1-local/7fa2af80.pub`
+    * `sudo dpkg -i cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb`
+    * `sudo apt-key add /var/cuda-repo-10-1-local-10.1.105-418.39/7fa2af80.pub`
     * `sudo apt-get update`
-    * `sudo apt-get -y install cuda`
+    * `sudo apt-get install cuda`
+
+By default, cuda libraries are installed in **/usr/local**. After installing all the CUDA versions you will find a respective folders for each one of the version with the name cuda pointing to the latest installed CUDA toolkit. In my case, I have installed versions 10.0 and 10.1, so my **/usr/local** lists the following:
+
+    ```
+    ...
+    cuda -> cuda-10.1
+    cuda-10.0
+    cuda-10.1
+    ...
+    ```
+
+
+
+
 
 - #### Add the following in `~/.bashrc`
  
