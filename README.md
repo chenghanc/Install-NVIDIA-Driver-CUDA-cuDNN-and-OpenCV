@@ -45,7 +45,7 @@ By default, cuda libraries are installed in **/usr/local**. After installing all
 
     * `cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2`
 
-- #### Configure LD_LIBRARY_PATH by adding the following in `~/.bashrc`
+## Configure LD_LIBRARY_PATH by adding the following in `~/.bashrc`
  
     ```
     # DARKNET
@@ -53,96 +53,5 @@ By default, cuda libraries are installed in **/usr/local**. After installing all
     #export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
     export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
     ```
-    
-- #### Check CUDA version by typing 
 
-    * `nvcc -V`
-
-
-## Install OpenCV from the source:
-
-- #### Install dependencies
-    
-- #### Clone the OpenCV and OpenCV contrib repositories
-     
-- #### Create a temporary build directory
-     
-- #### Set up the OpenCV build with CMake
- 
-  ```
-  cmake -D CMAKE_BUILD_TYPE=RELEASE \
-    -D CMAKE_INSTALL_PREFIX=/usr/local \
-    -D INSTALL_C_EXAMPLES=ON \
-    -D INSTALL_PYTHON_EXAMPLES=ON \
-    -D OPENCV_GENERATE_PKGCONFIG=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \
-    -D BUILD_EXAMPLES=ON ..
-  ```
-
-- #### Compilation
-
-    * Start the compilation process by typing 
-      * `make -j8`
-    * Install OpenCV with 
-      * `sudo make install`  
-    * To verify the installation by typing 
-      * `pkg-config --modversion opencv4`
-      * `4.5.1`
-    * Please visit https://linuxize.com/post/how-to-install-opencv-on-ubuntu-20-04/ for more information
-
-## Install Darknet:
-
-- #### Go to https://github.com/AlexeyAB/darknet and download the `zip` file. Once downloaded, unzip the file. Or alternatively, just type `git clone https://github.com/AlexeyAB/darknet` 
-
-    * `cd darknet`
-    * `sed -i 's/GPU=0/GPU=1/' Makefile`
-    * `sed -i 's/CUDNN=0/CUDNN=1/' Makefile`
-    * `sed -i 's/OPENCV=0/OPENCV=1/' Makefile`
-    * `sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile` (optional)
-    * `make -j12`
-
-- #### Remarks
-
-    * The installation is tested on GeForce RTX 2080 Super
-    * Need to remove older compute capability: **`-gencode arch=compute_30,code=sm_30`**
-    * Add new compute capability: **`ARCH= -gencode arch=compute_75,code=[sm_75,compute_75]`**
-
-## Test the Darknet Environment
-
-- #### We can test a single image by running the command
-
-    * `./darknet detector test cfg/coco.data cfg/yolov4.cfg ../weights/yolov4.weights -thresh 0.25 -dont_show data/dog.jpg`
-    
-- #### If everything works fine, it will show something like this at beginning and end
-
-  ```
-  CUDA-version: 11010 (11010), cuDNN: 8.0.5, GPU count: 1  
-  OpenCV version: 4.5.1
-  0 : compute_capability = 750, cudnn_half = 0, GPU: GeForce RTX 2080 Super with Max-Q Design 
-  ```
-  
-  ```
-  Done! Loaded 162 layers from weights-file 
-  Detection layer: 139 - type = 28 
-  Detection layer: 150 - type = 28 
-  Detection layer: 161 - type = 28 
-  data/dog.jpg: Predicted in 361.098000 milli-seconds.
-  bicycle: 92%
-  dog: 98%
-  truck: 92%
-  pottedplant: 33%
-  ```
-
-- #### We can start Training on custom dataset by running the command
-
-    * `./darknet detector train sun.data sun.cfg yolov4-tiny.conv.29 -map -dont_show`
-
-- #### Train on a remote server and watch mAP & Loss chart using local machine browser
-
-    * Log-in to remote machine via an ssh command `ssh nechk@192.168.1.117`
-    * Train on custom dataset by running 
-      * `./darknet detector train sun.data sun.cfg yolov4-tiny.conv.29 -map -dont_show -mjpeg_port 8090 > log.txt`
-    * In your remote machine, the training uses the port XXXX=8090 which you specified
-    * To watch mAP & Loss chart from your remote machine, type `http://192.168.1.117:8090/`
-    
-    
+- #### Please visit https://gist.github.com/raulqf/1733e64abf5c850805f32dd3d0f13c32 for more information
