@@ -43,7 +43,18 @@
   ```
   //m_LetterboxImage = cv::dnn::blobFromImage(m_LetterboxImage);
   ```
-- 
+- #### compile this [repo](https://github.com/ceccocats/tkDNN)
+
+  ```
+  git clone https://github.com/ceccocats/tkDNN
+  cd tkDNN
+  mkdir build
+  cd build
+  cmake .. 
+  make -j20
+  ```
+
+-
 
 ## References:
 
