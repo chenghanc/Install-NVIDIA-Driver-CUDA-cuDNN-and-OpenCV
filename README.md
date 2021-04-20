@@ -22,11 +22,27 @@
 - #### `sudo apt-get install python3-libnvinfer-dev`
 - #### `dpkg -l | grep TensorRT` (Verify the installation)
 
-## Install tkDNN: (TBC)
+## Install tkDNN:
 
 - #### `sudo apt install libyaml-cpp-dev`
 - #### `sudo apt install libeigen3-dev`
-- #### 
+- #### copy some necessary files
+
+  ```
+  sudo cp /home/nechk/OpenCV/opencv_contrib-3.2.0/modules/dnn/include/opencv2/dnn.hpp /usr/include/opencv2/
+  sudo cp /home/nechk/OpenCV/opencv_contrib-3.2.0/modules/dnn/include/opencv2/dnn/dnn.hpp /usr/include/opencv2/dnn
+  sudo cp /home/nechk/OpenCV/opencv_contrib-3.2.0/modules/dnn/include/opencv2/dnn/dict.hpp /usr/include/opencv2/dnn
+  sudo cp /home/nechk/OpenCV/opencv_contrib-3.2.0/modules/dnn/include/opencv2/dnn/blob.hpp /usr/include/opencv2/dnn
+  sudo cp /home/nechk/OpenCV/opencv_contrib-3.2.0/modules/dnn/include/opencv2/dnn/blob.inl.hpp /usr/include/opencv2/dnn
+  sudo cp /home/nechk/OpenCV/opencv_contrib-3.2.0/modules/dnn/include/opencv2/dnn/layer.hpp /usr/include/opencv2/dnn
+  sudo cp /home/nechk/OpenCV/opencv_contrib-3.2.0/modules/dnn/include/opencv2/dnn/dnn.inl.hpp /usr/include/opencv2/dnn
+  ```
+
+- #### comment the line here [comment](https://github.com/ceccocats/tkDNN/blob/master/src/Int8BatchStream.cpp#L129)
+
+  ```
+  //m_LetterboxImage = cv::dnn::blobFromImage(m_LetterboxImage);
+  ```
 - 
 
 ## References:
