@@ -65,9 +65,9 @@ Download the deb file
 ## Export weights and run the demo
 
 ```
-  test_nn
-    |---- layers/ (folder containing a binary file for each layer with the corresponding wieghts and bias)
-    |---- debug/  (folder containing a binary file for each layer with the corresponding outputs)
+test_nn
+  |---- layers/ (folder containing a binary file for each layer with the corresponding wieghts and bias)
+  |---- debug/  (folder containing a binary file for each layer with the corresponding outputs)
 ```
 
 * export weights from darknet
@@ -110,7 +110,7 @@ Download the deb file
 
 * **FP16 inference**
 
-run an object detection demo with FP16 inference
+  run an object detection demo with FP16 inference
 
   ```
   export TKDNN_MODE=FP16  # set the half floating point optimization
