@@ -65,9 +65,9 @@ Download the deb file
 ## Export weights and run the demo
 
 ```
-    test_nn
-        |---- layers/ (folder containing a binary file for each layer with the corresponding wieghts and bias)
-        |---- debug/  (folder containing a binary file for each layer with the corresponding outputs)
+  test_nn
+    |---- layers/ (folder containing a binary file for each layer with the corresponding wieghts and bias)
+    |---- debug/  (folder containing a binary file for each layer with the corresponding outputs)
 ```
 
 * export weights from darknet
@@ -108,7 +108,18 @@ Download the deb file
 
   * N.b. By default it is used FP32 inference
 
+* **FP16 inference**
 
+run an object detection demo with FP16 inference
+
+  ```
+  export TKDNN_MODE=FP16  # set the half floating point optimization
+  rm yolo4_fp16.rt        # be sure to delete old tensorRT files
+  ./test_yolo4
+  ./demo yolo4_fp16.rt ../demo/yolo_test.mp4 y
+  ```
+
+  * N.b. Using FP16 inference will lead to some errors in the results (first or second decimal)
 
 -
 
