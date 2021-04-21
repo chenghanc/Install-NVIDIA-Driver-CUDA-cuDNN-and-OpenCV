@@ -84,7 +84,7 @@ test_nn
 
 * put `debug` and `layers` in `tkDNN/build/yolo4/`
 
-  * need to modify `tkDNN/tests/darknet/yolo4.cpp` for custom dataset (cfg, names etc)
+  * need to modify `tkDNN/tests/darknet/yolo4.cpp` for custom dataset (cfg, names)
 
 * check
 
@@ -123,7 +123,7 @@ test_nn
 
 * **Inference tkDNN + Tensorrt with Python**
 
-  * compile this [repo](https://github.com/ioir123ju/tkDNN)
+  * compile this [repo](https://github.com/ioir123ju/tkDNN) (same as above)
 
   ```
   git clone https://github.com/ioir123ju/tkDNN tkDNN2
@@ -148,6 +148,43 @@ test_nn
 
   ```
   python darknetTR.py build/yolo4_fp32.rt --video=demo/yolo_test.mp4
+  ```
+
+## Export weights and run the demo (Cart)
+
+* export weights from darknet
+
+  ```
+  ./darknet export ../YoloFastest/cart/cart-tinyrcorr.cfg ../YoloFastest/cart/cart-tinyrcorr_best.weights layers
+
+  ```
+
+* put `debug` and `layers` in `tkDNN/build/yolo4tiny`
+
+* need to modify `tkDNN/tests/darknet/yolo4tiny.cpp` for custom dataset (cfg, names)
+
+  ```
+  std::string cfg_path  = std::string(TKDNN_PATH) + "/../YoloFastest/cart/cart-tinyrcorr.cfg";
+  std::string name_path = std::string(TKDNN_PATH) + "/../sddownload/cart.names";
+  ```
+
+* check
+
+  ```
+  cmake .. -DDEBUG=True
+  make -j20
+  ```
+
+* create the .rt file by running
+
+  ```
+  ./test_yolo4tiny
+  ```
+
+* run the demo
+
+  ```
+  ./demo yolo4tiny_fp32.rt test.mp4 y
   ```
 
 ## References:
