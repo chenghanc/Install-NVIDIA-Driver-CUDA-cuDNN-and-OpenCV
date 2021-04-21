@@ -4,6 +4,7 @@
 
 - #### Step 1: Install TensorRT
 - #### Step 2: Install tkDNN
+- #### Step 3: Export weights and run the demo
 
 ## Dependencies
 
@@ -60,6 +61,54 @@ Download the deb file
   cmake .. 
   make -j20
   ```
+
+## Export weights and run the demo
+
+```
+    test_nn
+        |---- layers/ (folder containing a binary file for each layer with the corresponding wieghts and bias)
+        |---- debug/  (folder containing a binary file for each layer with the corresponding outputs)
+```
+
+* export weights from darknet
+
+  ```
+  git clone https://git.hipert.unimore.it/fgatti/darknet.git  
+  cd darknet
+  make -j20
+  mkdir layers debug
+  ./darknet export <path-to-cfg-file> <path-to-weights> layers
+  ```
+
+  * N.b. Use compilation with CPU (leave GPU=0 in Makefile) if you also want debug
+
+* put `debug` and `layers` in `tkDNN/build/yolo4/`
+
+  * need to modify `tkDNN/tests/darknet/yolo4.cpp` for custom dataset (cfg, names etc)
+
+* check
+
+  ```
+  cmake .. -DDEBUG=True
+  make -j20
+  ```
+
+* create the .rt file by running
+
+  ```
+  rm yolo4_fp32.rt        # be sure to delete old tensorRT files
+  ./test_yolo4            
+  ```
+
+* run the demo
+
+  ```
+  ./demo yolo4_fp32.rt ../demo/yolo_test.mp4 y
+  ```
+
+  * N.b. By default it is used FP32 inference
+
+
 
 -
 
