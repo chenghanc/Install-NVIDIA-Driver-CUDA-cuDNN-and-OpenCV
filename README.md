@@ -121,12 +121,41 @@ test_nn
 
   * N.b. Using FP16 inference will lead to some errors in the results (first or second decimal)
 
--
+* **Inference tkDNN + Tensorrt with Python**
+
+  * compile this [repo](https://github.com/ioir123ju/tkDNN)
+
+  ```
+  git clone https://github.com/ioir123ju/tkDNN tkDNN2
+  cd tkDNN2
+  mkdir build
+  cd build
+  cmake ..
+  make -j20
+
+  //m_LetterboxImage = cv::dnn::blobFromImage(m_LetterboxImage);
+  ```
+
+  ```
+  cmake .. -DDEBUG=True
+  make -j20
+
+  ./test_yolo4
+  ./demo yolo4_fp32.rt ../demo/yolo_test.mp4 y
+  ```
+
+  * run an object detection demo with python
+
+  ```
+  python darknetTR.py build/yolo4_fp32.rt --video=demo/yolo_test.mp4
+  ```
 
 ## References:
 
 - #### [tkDNN](https://github.com/ceccocats/tkDNN)
 - #### [tkDNN](https://github.com/ioir123ju/tkDNN)
+- #### [Inference tkDNN + Tensorrt with Python](https://github.com/ceccocats/tkDNN/issues/30)
+- #### [C++](https://github.com/ceccocats/tkDNN/issues/87)
 - #### [csdn](https://blog.csdn.net/gdfsy123/article/details/113823771)
 - #### [nvidia](https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html)
 - #### [tutorial](https://medium.com/ching-i/tensorrt-%E4%BB%8B%E7%B4%B9%E8%88%87%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-45e44f73b25e)
