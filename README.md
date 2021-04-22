@@ -222,6 +222,34 @@ test_nn
   ./demo yolo4_fp32.rt test.mp4 y
   ```
 
+<details>
+  <summary>Output</summary>
+  detection
+  yolo4_fp32-head.rt
+  New NetworkRT (TensorRT v7)
+  Float16 support: 1
+  Int8 support: 1
+  DLAs: 0
+  TENSORRT LOG: Deserialize required 3193145 microseconds.
+  create execution context
+  TENSORRT LOG: Current optimization profile is: 0. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+  Input/outputs numbers: 4
+  input index = 0 -> output index = 3
+  Data dim: 1 3 512 512 1
+  Data dim: 1 33 16 16 1
+  RtBuffer 0   dim: Data dim: 1 3 512 512 1
+  RtBuffer 1   dim: Data dim: 1 33 64 64 1
+  RtBuffer 2   dim: Data dim: 1 33 32 32 1
+  RtBuffer 3   dim: Data dim: 1 33 16 16 1
+  camera started
+  detection end
+
+  Time stats:
+  Min: 9.41671 ms
+  Max: 17.5369 ms
+  **Avg: 10.438 ms  95.8034 FPS**
+</details>
+
 ## References:
 
 - #### [tkDNN](https://github.com/ceccocats/tkDNN)
