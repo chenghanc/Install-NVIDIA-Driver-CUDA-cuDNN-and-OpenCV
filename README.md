@@ -156,7 +156,6 @@ test_nn
 
   ```
   ./darknet export ../YoloFastest/cart/cart-tinyrcorr.cfg ../YoloFastest/cart/cart-tinyrcorr_best.weights layers
-
   ```
 
 * put `debug` and `layers` in `tkDNN/build/yolo4tiny`
@@ -185,6 +184,42 @@ test_nn
 
   ```
   ./demo yolo4tiny_fp32.rt test.mp4 y
+  ```
+
+## Export weights and run the demo (Head)
+
+* export weights from darknet
+
+  ```
+  ./darknet export ../headv1corr.cfg ../headv1corr_9000.weights layers/
+  ```
+
+* put `debug` and `layers` in `tkDNN/build/yolo4`
+
+* need to modify `tkDNN/tests/darknet/yolo4.cpp` for custom dataset (cfg, names)
+
+  ```
+  std::string cfg_path  = std::string(TKDNN_PATH) + "/../headv1corr.cfg";
+  std::string name_path = std::string(TKDNN_PATH) + "/../../../baby.names";
+  ```
+
+* check
+
+  ```
+  cmake .. -DDEBUG=True
+  make -j20
+  ```
+
+* create the .rt file by running
+
+  ```
+  ./test_yolo4
+  ```
+
+* run the demo
+
+  ```
+  ./demo yolo4_fp32.rt test.mp4 y
   ```
 
 ## References:
