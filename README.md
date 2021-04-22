@@ -224,6 +224,8 @@ test_nn
 
 <details>
   <summary>Output</summary>
+
+```
   detection
   yolo4_fp32-head.rt
   New NetworkRT (TensorRT v7)
@@ -247,7 +249,9 @@ test_nn
   Time stats:
   Min: 9.41671 ms
   Max: 17.5369 ms
-  **Avg: 10.438 ms  95.8034 FPS**
+  Avg: 10.438 ms  95.8034 FPS
+```
+
 </details>
 
 ## References:
