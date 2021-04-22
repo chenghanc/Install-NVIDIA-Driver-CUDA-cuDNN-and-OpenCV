@@ -223,7 +223,7 @@ test_nn
   ```
 
 <details>
-  <summary>Output</summary>
+  <summary>Output (FPS)</summary>
 
 ```
   detection
@@ -250,6 +250,38 @@ test_nn
   Min: 9.41671 ms
   Max: 17.5369 ms
   Avg: 10.438 ms  95.8034 FPS
+```
+
+</details>
+
+<details>
+  <summary>Output Tiny (FPS)</summary>
+
+```
+  detection
+  yolo4tiny_fp32-head.rt
+  New NetworkRT (TensorRT v7)
+  Float16 support: 1
+  Int8 support: 1
+  DLAs: 0
+  TENSORRT LOG: Deserialize required 970329 microseconds.
+  create execution context
+  TENSORRT LOG: Current optimization profile is: 0. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+  Input/outputs numbers: 4
+  input index = 0 -> output index = 3
+  Data dim: 1 3 640 640 1
+  Data dim: 1 55 80 80 1
+  RtBuffer 0   dim: Data dim: 1 3 640 640 1
+  RtBuffer 1   dim: Data dim: 1 44 20 20 1
+  RtBuffer 2   dim: Data dim: 1 55 40 40 1
+  RtBuffer 3   dim: Data dim: 1 55 80 80 1
+  camera started
+  detection end
+
+  Time stats:
+  Min: 2.94812 ms
+  Max: 5.8546 ms
+  Avg: 3.28019 ms 304.861 FPS
 ```
 
 </details>
