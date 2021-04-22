@@ -186,6 +186,38 @@ test_nn
   ./demo yolo4tiny_fp32.rt test.mp4 y
   ```
 
+<details>
+  <summary>Output Tiny (FPS)</summary>
+
+```
+  detection
+  yolo4tiny_fp32-cart.rt
+  New NetworkRT (TensorRT v7)
+  Float16 support: 1
+  Int8 support: 1
+  DLAs: 0
+  TENSORRT LOG: Deserialize required 1064493 microseconds.
+  create execution context
+  TENSORRT LOG: Current optimization profile is: 0. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+  Input/outputs numbers: 4
+  input index = 0 -> output index = 3
+  Data dim: 1 3 448 800 1
+  Data dim: 1 30 56 100 1
+  RtBuffer 0   dim: Data dim: 1 3 448 800 1
+  RtBuffer 1   dim: Data dim: 1 24 14 25 1
+  RtBuffer 2   dim: Data dim: 1 30 28 50 1
+  RtBuffer 3   dim: Data dim: 1 30 56 100 1
+  camera started
+  detection end
+
+  Time stats:
+  Min: 2.68929 ms
+  Max: 15.7571 ms
+  Avg: 3.27645 ms 305.208 FPS
+```
+
+</details>
+
 ## Export weights and run the demo (Head)
 
 * export weights from darknet
