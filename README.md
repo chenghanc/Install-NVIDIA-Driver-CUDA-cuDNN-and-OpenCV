@@ -350,11 +350,12 @@ tkDNN-TensorRT accelerates YOLOv4 ~ **2x** times for batch=1 and ~ **3x-4x** tim
 ## References:
 
 - #### [tkDNN](https://github.com/ceccocats/tkDNN)
-- #### [tkDNN](https://github.com/ioir123ju/tkDNN)
+- #### [tkDNN (Python)](https://github.com/ioir123ju/tkDNN)
 - #### [Inference tkDNN + Tensorrt with Python](https://github.com/ceccocats/tkDNN/issues/30)
 - #### [C++](https://github.com/ceccocats/tkDNN/issues/87)
 - #### [csdn](https://blog.csdn.net/gdfsy123/article/details/113823771)
 - #### [nvidia](https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html)
 - #### [tutorial](https://medium.com/ching-i/tensorrt-%E4%BB%8B%E7%B4%B9%E8%88%87%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-45e44f73b25e)
+- #### [How to improve YOLO detection time](https://stackoverflow.com/questions/62796683/how-to-improve-yolov3-detection-time-opencv-python)
 
 
