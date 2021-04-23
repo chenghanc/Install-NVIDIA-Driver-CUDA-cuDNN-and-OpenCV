@@ -255,6 +255,20 @@ test_nn
   ```
 
 <details>
+  <summary>Comparison Darknet v.s. tkDNN-TensorRT (FPS)</summary>
+
+tkDNN-TensorRT accelerates YOLOv4 ~ **2x** times for batch=1 and ~ **3x-4x** times for batch=4
+
+* Platform: **GeForce RTX 2080 Ti:**
+* Video Dimensions: 1920 x 1080
+
+| Network Size | Darknet AVG_FPS | tkDNN-TensorRT FPS (FP32) | tkDNN-TensorRT FPS (FP16) |
+|:------------:|:---------------:|:-------------------------:|:-------------------------:|
+| Yolov4 512   |  71.6           | 96.4                      | 148.0                     |
+
+</details>
+
+<details>
   <summary>Output (FPS)</summary>
 
 ```
