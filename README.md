@@ -254,17 +254,32 @@ test_nn
   ./demo yolo4_fp32.rt test.mp4 y
   ```
 
+## BatchSize bigger than 1
+
+* build TensorRT files
+
+  ```
+  export TKDNN_MODE=FP32                # set the floating point
+  export TKDNN_BATCHSIZE=4              # set max batch size
+
+  rm yolo4_fp32.rt                      # be sure to delete (or move) old RT file
+  ./test_yolo4                          # build RT file
+  ./test_rtinference yolo4_fp32.rt 4    # test with a batch size of 4
+  ./demo yolo4_fp32.rt test.mp4 y 6 4 0 # run the demo with a batch size of 4
+  ```
+
 <details>
   <summary>Comparison Darknet v.s. tkDNN-TensorRT (FPS)</summary>
 
 tkDNN-TensorRT accelerates YOLOv4 ~ **2x** times for batch=1 and ~ **3x-4x** times for batch=4
 
+* Inference FPS of Yolov4 with Darknet and tkDNN-TensorRT on custom trained model
 * Platform: **GeForce RTX 2080 Ti:**
 * Video Dimensions: 1920 x 1080
 
-| Network Size | Darknet AVG_FPS | tkDNN-TensorRT FPS (FP32) | tkDNN-TensorRT FPS (FP16) |
-|:------------:|:---------------:|:-------------------------:|:-------------------------:|
-| Yolov4 512   |  71.6           | 96.4                      | 148.0                     |
+| Network Size | Darknet AVG_FPS | tkDNN-TensorRT FP32 (B=1) | tkDNN-TensorRT FP32 (B=4) | tkDNN-TensorRT FP16 (B=1) | tkDNN-TensorRT FP16 (B=4) |
+|:------------:|:---------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
+| Yolov4 512   |  71.6           | 96.4                      | 122.1                     | 148.0                     | 202.6                     |
 
 </details>
 
