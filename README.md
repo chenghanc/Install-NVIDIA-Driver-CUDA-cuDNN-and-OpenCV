@@ -51,6 +51,12 @@ Download the deb file
   //m_LetterboxImage = cv::dnn::blobFromImage(m_LetterboxImage);
   ```
 
+* comment the line here [comment](https://github.com/ceccocats/tkDNN/blob/master/include/tkDNN/SegmentationNN.h#L393)
+
+  ```
+  //cv::resizeWindow("segmented", cv::Size(512,288));
+  ```
+
 * compile this [repo](https://github.com/ceccocats/tkDNN)
 
   ```
