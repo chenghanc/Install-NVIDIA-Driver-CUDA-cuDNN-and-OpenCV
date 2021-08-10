@@ -61,3 +61,17 @@ dpkg -l | grep opencv
   sudo ./yolov5 -s yolov5_custom.wts yolov5.engine c 0.17 0.25
   sudo ./yolov5 -d yolov5.engine ../samples
   ```
+
+* Optional, load and run the tensorrt model in python
+
+  ```
+  // install python-tensorrt, pycuda, etc.
+  // conda create -n tensorrt python=3.7
+  // download TensorRT-7.0.0.11.Ubuntu-18.04.x86_64-gnu.cuda-10.0.cudnn7.6.tar
+  // ...
+  // pip install tensorrt-7.0.0.11-cp37-none-linux_x86_64.whl
+  // pip install pycuda
+  // ...
+  // ensure the yolov5s.engine and libmyplugins.so have been built
+  python yolov5_trt.py
+  ```
