@@ -274,6 +274,17 @@ test_nn
   ./demo yolo4_fp32.rt test.mp4 y 6 4 0 # run the demo with a batch size of 4
   ```
 
+## C++ API
+
+```
+vim {tkDNN}/demo/demo/demo.cpp
+
+cmake .. -DDEBUG=True
+make -j20
+
+./demo
+```
+
 <details>
   <summary>Comparison Darknet v.s. tkDNN-TensorRT (FPS)</summary>
 
