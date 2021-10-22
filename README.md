@@ -74,6 +74,22 @@ make training
 sudo make training-install
 ```
 
+## Language Data
+
+- Download the data files `https://github.com/tesseract-ocr/tessdata/tree/3.04.00`
+
+```shell
+unzip tessdata-3.04.00.zip
+mv tessdata-3.04.00 tessdata
+sudo mv tessdata /usr/local/share/
+export TESSDATA_PREFIX=/usr/local/share/tessdata
+```
+
+## Uninstall Tesseract
+
+- Run `sudo make uninstall` in the `Tesseract` folder
+- Remove the `Tesseract` folder
+
 ---
 
 ## References
@@ -85,3 +101,4 @@ sudo make training-install
 5. [Source code Released](https://github.com/tesseract-ocr/tesseract/releases)
 6. [Leptonica](http://www.leptonica.org/)
 7. [Index of /leptonica](https://distfiles.macports.org/leptonica/)
+8. [tessdata](https://github.com/tesseract-ocr/tessdata/tree/3.04.00)
