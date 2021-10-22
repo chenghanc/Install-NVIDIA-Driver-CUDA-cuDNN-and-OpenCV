@@ -19,6 +19,14 @@ sudo apt-get install libtiff5-dev
 sudo apt-get install zlib1g-dev
 ```
 
+## Pre-requisites for training tools (Optional)
+
+```shell
+sudo apt-get install libicu-dev
+sudo apt-get install libpango1.0-dev
+sudo apt-get install libcairo2-dev
+```
+
 ## Install Leptonica
 
 ```shell
@@ -58,6 +66,15 @@ tesseract 3.05.02
  leptonica-1.75.3
   libgif 5.1.4 : libjpeg 8d (libjpeg-turbo 1.5.2) : libpng 1.6.34 : libtiff 4.0.9 : zlib 1.2.11 : libwebp 0.6.1 : libopenjp2 2.3.0
 ```
+
+## Build training tools
+
+```shell
+make training
+sudo make training-install
+```
+
+---
 
 ## References
 
