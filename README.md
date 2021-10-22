@@ -85,6 +85,10 @@ sudo mv tessdata /usr/local/share/
 export TESSDATA_PREFIX=/usr/local/share/tessdata
 ```
 
+## Training Tesseract
+
+Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tessdoc/blob/main/tess3/Training-Tesseract-3.03%E2%80%933.05.md) and [tess3](https://github.com/tesseract-ocr/tessdoc/tree/main/tess3)
+
 ## Uninstall Tesseract
 
 - Run `sudo make uninstall` in the `Tesseract` folder
@@ -102,3 +106,9 @@ export TESSDATA_PREFIX=/usr/local/share/tessdata
 6. [Leptonica](http://www.leptonica.org/)
 7. [Index of /leptonica](https://distfiles.macports.org/leptonica/)
 8. [tessdata](https://github.com/tesseract-ocr/tessdata/tree/3.04.00)
+9. [tessdoc](https://github.com/tesseract-ocr/tessdoc)
+10. [astutejoe/tesseract-tutorial](https://github.com/astutejoe/tesseract-tutorial)
+11. [Shreeshrii/tessdata_ocrb](https://github.com/Shreeshrii/tessdata_ocrb)
+12. [jTessBoxEditor](http://vietocr.sourceforge.net/training.html)
+13. [OCRB](https://github.com/brendanjerwin/cold_steel_storage/blob/master/OCRB.ttf)
+14. [Qt Box Editor](https://medium.com/quantrium-tech/training-tesseract-using-qt-box-editor-1c089ae3029)
