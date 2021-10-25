@@ -27,6 +27,12 @@ sudo apt-get install libpango1.0-dev
 sudo apt-get install libcairo2-dev
 ```
 
+## Install Developer Tools used for training
+
+```shell
+sudo apt install libtesseract-dev
+```
+
 ## Install Leptonica
 
 ```shell
@@ -88,6 +94,37 @@ export TESSDATA_PREFIX=/usr/local/share/tessdata
 ## Training Tesseract
 
 Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tessdoc/blob/main/tess3/Training-Tesseract-3.03%E2%80%933.05.md) and [tess3](https://github.com/tesseract-ocr/tessdoc/tree/main/tess3)
+
+## Install Qt-box-editor
+
+- Go to the github [zdenop/qt-box-editor](https://github.com/zdenop/qt-box-editor) and download the latest released source code
+- Compile the source code
+
+```shell
+BUILDING ON UBUNTU
+==================
+
+sudo apt-get install qt5-qmake
+sudo apt-get install qt5-default
+sudo apt-get install libqt5gui5
+sudo apt-get install qt5-doc
+sudo apt-get install libqt5svg5-dev
+
+qmake
+make -j20
+```
+
+- If compilation fails, you can try to uninstall Leptonica `sudo apt-get remove libleptonica-dev` and install [leptonica version 1.78.0](https://distfiles.macports.org/leptonica/). Open a shell and execute (Optional)
+
+```shell
+./configure
+sudo make -j20
+sudo make install
+```
+
+- Also, the system might somehow mixup `conda qt` and `apt-get qt`. One solution is to exchange to another conda environment, which has no qt installation (say, qt 5.9.7). See [link](https://github.com/zdenop/qt-box-editor/issues/77) for more informations
+
+- Open Qt-box-editor by executing `./release/qt-box-editor-1.12rc1`
 
 ## Uninstall Tesseract
 
