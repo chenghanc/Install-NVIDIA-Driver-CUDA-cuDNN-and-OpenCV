@@ -87,8 +87,8 @@ sudo make training-install
 ```shell
 unzip tessdata-3.04.00.zip
 mv tessdata-3.04.00 tessdata
-sudo mv tessdata /usr/local/share/
-export TESSDATA_PREFIX=/usr/local/share/tessdata
+sudo mv tessdata/* /usr/share/tesseract-ocr/share/tessdata/
+export TESSDATA_PREFIX=/usr/share/tesseract-ocr/share/tessdata
 ```
 
 ## Install Qt-box-editor
