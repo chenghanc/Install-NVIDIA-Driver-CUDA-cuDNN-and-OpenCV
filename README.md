@@ -91,10 +91,6 @@ sudo mv tessdata /usr/local/share/
 export TESSDATA_PREFIX=/usr/local/share/tessdata
 ```
 
-## Training Tesseract
-
-Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tessdoc/blob/main/tess3/Training-Tesseract-3.03%E2%80%933.05.md) and [tess3](https://github.com/tesseract-ocr/tessdoc/tree/main/tess3)
-
 ## Install Qt-box-editor
 
 - Go to the github [zdenop/qt-box-editor](https://github.com/zdenop/qt-box-editor) and download the latest released source code
@@ -114,7 +110,7 @@ qmake
 make -j20
 ```
 
-- If compilation fails, you can try to uninstall Leptonica `sudo apt-get remove libleptonica-dev` and install [leptonica version 1.78.0](https://distfiles.macports.org/leptonica/). Open a shell and execute (Optional)
+- If compilation fails, you can try to uninstall Leptonica `sudo apt-get remove libleptonica-dev` and install [leptonica version 1.78.0](https://distfiles.macports.org/leptonica/) from source. Open a shell and execute (Optional)
 
 ```shell
 ./configure
@@ -125,6 +121,17 @@ sudo make install
 - Also, the system might somehow mixup `conda qt` and `apt-get qt`. One solution is to exchange to another conda environment, which has no qt installation (say, qt 5.9.7). See [link](https://github.com/zdenop/qt-box-editor/issues/77) for more informations
 
 - Open Qt-box-editor by executing `./release/qt-box-editor-1.12rc1`
+
+
+## Install jTessBoxEditor
+
+- Go to the download page and download [jTessBoxEditor-2.3.1.zip](https://sourceforge.net/projects/vietocr/files/jTessBoxEditor/)
+
+- unzip the file and activate jTessBoxEditor by executing `java -Xms128m -Xmx1024m -jar jTessBoxEditor.jar`
+
+## Training Tesseract
+
+Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tessdoc/blob/main/tess3/Training-Tesseract-3.03%E2%80%933.05.md) and [tess3](https://github.com/tesseract-ocr/tessdoc/tree/main/tess3)
 
 ## Uninstall Tesseract
 
@@ -137,15 +144,12 @@ sudo make install
 
 1. [Ubuntu 18.04 krissdap/Code](https://gist.github.com/krissdap/d888a50a9212f5da3ce5e5c80c553831)
 2. [Ubuntu 16.04](https://blog.csdn.net/u011807371/article/details/76178480)
-3. [Ubuntu 14.04](https://medium.com/@lucas63/installing-tesseract-3-04-in-ubuntu-14-04-1dae8b748a32)
-4. [Tesseract documentation](https://tesseract-ocr.github.io/tessdoc/Compiling.html#linux)
-5. [Source code Released](https://github.com/tesseract-ocr/tesseract/releases)
-6. [Leptonica](http://www.leptonica.org/)
-7. [Index of /leptonica](https://distfiles.macports.org/leptonica/)
-8. [tessdata](https://github.com/tesseract-ocr/tessdata/tree/3.04.00)
-9. [tessdoc](https://github.com/tesseract-ocr/tessdoc)
-10. [astutejoe/tesseract-tutorial](https://github.com/astutejoe/tesseract-tutorial)
-11. [Shreeshrii/tessdata_ocrb](https://github.com/Shreeshrii/tessdata_ocrb)
-12. [jTessBoxEditor](http://vietocr.sourceforge.net/training.html)
-13. [OCRB](https://github.com/brendanjerwin/cold_steel_storage/blob/master/OCRB.ttf)
-14. [Qt Box Editor](https://medium.com/quantrium-tech/training-tesseract-using-qt-box-editor-1c089ae3029)
+3. [Tesseract documentation](https://tesseract-ocr.github.io/tessdoc/Compiling.html#linux)
+4. [Leptonica](http://www.leptonica.org/)
+5. [tessdata](https://github.com/tesseract-ocr/tessdata/tree/3.04.00)
+6. [tessdoc](https://github.com/tesseract-ocr/tessdoc)
+7. [astutejoe/tesseract-tutorial](https://github.com/astutejoe/tesseract-tutorial)
+8. [Shreeshrii/tessdata_ocrb](https://github.com/Shreeshrii/tessdata_ocrb)
+9. [jTessBoxEditor](http://vietocr.sourceforge.net/training.html)
+10. [OCRB](https://github.com/brendanjerwin/cold_steel_storage/blob/master/OCRB.ttf)
+11. [Qt Box Editor](https://medium.com/quantrium-tech/training-tesseract-using-qt-box-editor-1c089ae3029)
