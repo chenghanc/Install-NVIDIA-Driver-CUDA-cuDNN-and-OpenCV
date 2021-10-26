@@ -131,7 +131,9 @@ sudo make install
 
 ## Training Tesseract
 
-Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tessdoc/blob/main/tess3/Training-Tesseract-3.03%E2%80%933.05.md) and [tess3](https://github.com/tesseract-ocr/tessdoc/tree/main/tess3)
+Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tessdoc/blob/main/tess3/Training-Tesseract-3.03%E2%80%933.05.md) and [Tutorial](https://www.jianshu.com/p/5f847d8089ce)
+
+
 
 ## Uninstall Tesseract
 
@@ -152,4 +154,9 @@ Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tes
 8. [Shreeshrii/tessdata_ocrb](https://github.com/Shreeshrii/tessdata_ocrb)
 9. [jTessBoxEditor](http://vietocr.sourceforge.net/training.html)
 10. [OCRB](https://github.com/brendanjerwin/cold_steel_storage/blob/master/OCRB.ttf)
-11. [Qt Box Editor](https://medium.com/quantrium-tech/training-tesseract-using-qt-box-editor-1c089ae3029)
+11. [Training-data](https://pretius.com/blog/ocr-tesseract-training-data/)
+12. [Tutorial](https://www.jianshu.com/p/5f847d8089ce)
+13. [Tutorial](https://b98606021.medium.com/%E5%AF%A6%E7%94%A8%E5%BF%83%E5%BE%97-tesseract-ocr-eef4fcd425f0)
+14. [Tutorial](https://blog.csdn.net/u011807371/article/details/77164181)
+15. [Tutorial](http://gwang-cv.github.io/2017/08/25/Tesseract4.0+jTessBoxEditor%E8%AE%AD%E7%BB%83(ubuntu%E4%B8%8B)/)
+16. [Tutorial](https://www.jianshu.com/p/31afd7fc5813)
