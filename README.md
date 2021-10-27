@@ -131,9 +131,9 @@ sudo make install
 
 ## Training Tesseract
 
-- ##Step 1:## Generate `.tif` files `[custom].[font name].exp[number].tif`, e.g. `id_passport.ocrb.exp0.tif`
+- **Step 1:** Generate `.tif` files `[custom].[font name].exp[number].tif`, e.g. `id_passport.ocrb.exp0.tif`
 
-- ##Step 2:## Generate `.box` files
+- **Step 2:** Generate `.box` files
 
 ```shell
 tesseract id_passport.ocrb.exp0.tif id_passport.ocrb.exp0 batch.nochop makebox
@@ -154,9 +154,9 @@ tesseract id_passport.ocrb.exp1.tif id_passport.ocrb.exp1 box.train
 
 If everything works fine, we can delete `.tr` files and go to next step
 
-- ##Step 3:## Open each `.tif` file that you generated with jTessBoxEditor and correct Tesseract `*.box` file if it made any mistake (if no mistake found, then probably need not train it)
+- **Step 3:** Open each `.tif` file that you generated with jTessBoxEditor and correct Tesseract `*.box` file if it made any mistake (if no mistake found, then probably need not train it)
 
-- ##Step 4:## Generate `.tr` files
+- **Step 4:** Generate `.tr` files
 
 ```shell
 tesseract id_passport.ocrb.exp0.tif id_passport.ocrb.exp0 box.train
@@ -166,13 +166,13 @@ tesseract id_passport.ocrb.exp2.tif id_passport.ocrb.exp2 box.train
 ...
 ```
 
-- ##Step 5:## Generate `.unicharset` file
+- **Step 5:** Generate `.unicharset` file
 
 ```shell
 unicharset_extractor id_passport.ocrb.exp0.box id_passport.ocrb.exp1.box id_passport.ocrb.exp2.box
 ```
 
-- ##Step 6:## Define Font properties (tell Tesseract informations about the font) `echo "ocrb 0 0 0 0 0" > font_properties`
+- **Step 6:** Define Font properties (tell Tesseract informations about the font) `echo "ocrb 0 0 0 0 0" > font_properties`
 
 The syntax is as follows:
 
@@ -180,7 +180,7 @@ The syntax is as follows:
 fontname italic bold fixed serif fraktur
 ```
 
-- ##Step 7:## Clustering
+- **Step 7:** Clustering
 
 ```shell
 mftraining -F font_properties -U unicharset -O id_passport.unicharset id_passport.ocrb.exp0.tr id_passport.ocrb.exp1.tr id_passport.ocrb.exp2.tr
@@ -188,7 +188,7 @@ mftraining -F font_properties -U unicharset -O id_passport.unicharset id_passpor
 cntraining id_passport.ocrb.exp0.tr id_passport.ocrb.exp1.tr id_passport.ocrb.exp2.tr
 ```
 
-- ##Step 8:## Rename all files created by `mftraining` and `cntraining`, add the prefix `id_passport.`:
+- **Step 8:** Rename all files created by `mftraining` and `cntraining`, add the prefix `id_passport.`:
 
 ```shell
 mv inttemp id_passport.inttemp
@@ -197,9 +197,9 @@ mv pffmtable id_passport.pffmtable
 mv shapetable id_passport.shapetable
 ```
 
-- ##Step 9:## Combine it all into a **id_passport.traineddata** file `combine_tessdata id_passport.`. Once the file is ready, you can copy it to `/usr/share/tesseract-ocr/share/tessdata/`
+- **Step 9:** Combine it all into a **id_passport.traineddata** file `combine_tessdata id_passport.`. Once the file is ready, you can copy it to `/usr/share/tesseract-ocr/share/tessdata/`
 
-- ##Step 10:## Check and test
+- **Step 10:** Check and test
 
 ```shell
 tesseract --list-langs
@@ -225,13 +225,10 @@ Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tes
 3. [Tesseract documentation](https://tesseract-ocr.github.io/tessdoc/Compiling.html#linux)
 4. [Leptonica](http://www.leptonica.org/)
 5. [tessdata](https://github.com/tesseract-ocr/tessdata/tree/3.04.00)
-6. [tessdoc](https://github.com/tesseract-ocr/tessdoc)
-7. [astutejoe/tesseract-tutorial](https://github.com/astutejoe/tesseract-tutorial)
-8. [Shreeshrii/tessdata_ocrb](https://github.com/Shreeshrii/tessdata_ocrb)
-9. [jTessBoxEditor](http://vietocr.sourceforge.net/training.html)
-10. [OCRB](https://github.com/brendanjerwin/cold_steel_storage/blob/master/OCRB.ttf)
-11. [Training-data](https://pretius.com/blog/ocr-tesseract-training-data/)
-12. [Tutorial](https://b98606021.medium.com/%E5%AF%A6%E7%94%A8%E5%BF%83%E5%BE%97-tesseract-ocr-eef4fcd425f0)
-13. [Tutorial](https://blog.csdn.net/u011807371/article/details/77164181)
-14. [Tutorial](http://gwang-cv.github.io/2017/08/25/Tesseract4.0+jTessBoxEditor%E8%AE%AD%E7%BB%83(ubuntu%E4%B8%8B)/)
-15. [Tutorial](https://www.jianshu.com/p/31afd7fc5813)
+6. [astutejoe/tesseract-tutorial](https://github.com/astutejoe/tesseract-tutorial)
+7. [Shreeshrii/tessdata_ocrb](https://github.com/Shreeshrii/tessdata_ocrb)
+8. [jTessBoxEditor](http://vietocr.sourceforge.net/training.html)
+9. [OCRB](https://github.com/brendanjerwin/cold_steel_storage/blob/master/OCRB.ttf)
+10. [Training-data](https://pretius.com/blog/ocr-tesseract-training-data/)
+11. [Tutorial](https://b98606021.medium.com/%E5%AF%A6%E7%94%A8%E5%BF%83%E5%BE%97-tesseract-ocr-eef4fcd425f0)
+12. [Tutorial](https://blog.csdn.net/u011807371/article/details/77164181)
