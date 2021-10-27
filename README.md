@@ -131,6 +131,82 @@ sudo make install
 
 ## Training Tesseract
 
+- ##Step 1:## Generate `.tif` files `[custom].[font name].exp[number].tif`, e.g. `id_passport.ocrb.exp0.tif`
+
+- ##Step 2:## Generate `.box` files
+
+```shell
+tesseract id_passport.ocrb.exp0.tif id_passport.ocrb.exp0 batch.nochop makebox
+tesseract id_passport.ocrb.exp1.tif id_passport.ocrb.exp1 batch.nochop makebox
+tesseract id_passport.ocrb.exp2.tif id_passport.ocrb.exp2 batch.nochop makebox
+
+...
+```
+
+Before proceeding to next step, we can verify if `.box` files are generated correctly by executing (Optional)
+
+```shell
+tesseract id_passport.ocrb.exp0.tif id_passport.ocrb.exp0 box.train
+tesseract id_passport.ocrb.exp1.tif id_passport.ocrb.exp1 box.train
+
+...
+```
+
+If everything works fine, we can delete `.tr` files and go to next step
+
+- ##Step 3:## Open each `.tif` file that you generated with jTessBoxEditor and correct Tesseract `*.box` file if it made any mistake (if no mistake found, then probably need not train it)
+
+- ##Step 4:## Generate `.tr` files
+
+```shell
+tesseract id_passport.ocrb.exp0.tif id_passport.ocrb.exp0 box.train
+tesseract id_passport.ocrb.exp1.tif id_passport.ocrb.exp1 box.train
+tesseract id_passport.ocrb.exp2.tif id_passport.ocrb.exp2 box.train
+
+...
+```
+
+- ##Step 5:## Generate `.unicharset` file
+
+```shell
+unicharset_extractor id_passport.ocrb.exp0.box id_passport.ocrb.exp1.box id_passport.ocrb.exp2.box
+```
+
+- ##Step 6:## Define Font properties (tell Tesseract informations about the font) `echo "ocrb 0 0 0 0 0" > font_properties`
+
+The syntax is as follows:
+
+```shell
+fontname italic bold fixed serif fraktur
+```
+
+- ##Step 7:## Clustering
+
+```shell
+mftraining -F font_properties -U unicharset -O id_passport.unicharset id_passport.ocrb.exp0.tr id_passport.ocrb.exp1.tr id_passport.ocrb.exp2.tr
+
+cntraining id_passport.ocrb.exp0.tr id_passport.ocrb.exp1.tr id_passport.ocrb.exp2.tr
+```
+
+- ##Step 8:## Rename all files created by `mftraining` and `cntraining`, add the prefix `id_passport.`:
+
+```shell
+mv inttemp id_passport.inttemp
+mv normproto id_passport.normproto
+mv pffmtable id_passport.pffmtable
+mv shapetable id_passport.shapetable
+```
+
+- ##Step 9:## Combine it all into a **id_passport.traineddata** file `combine_tessdata id_passport.`. Once the file is ready, you can copy it to `/usr/share/tesseract-ocr/share/tessdata/`
+
+- ##Step 10:## Check and test
+
+```shell
+tesseract --list-langs
+
+tesseract matPreWhite.bmp stdout -l id_passport
+```
+
 Please see [Training-Tesseract-3.03–3.05](https://github.com/tesseract-ocr/tessdoc/blob/main/tess3/Training-Tesseract-3.03%E2%80%933.05.md) and [Tutorial](https://www.jianshu.com/p/5f847d8089ce)
 
 
