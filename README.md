@@ -171,6 +171,10 @@ If everything works fine, we can delete `.tr` files and go to next step
 - **Step 3B:** If the system could not find font named `OCR B Regular`, one way round this problem is to generate `.tif + .box` files from `.txt` using command line (Recommended)
 	- `text2image --text=./1_0PXvIdB0xeg7AgqfvUeJeA.png-0.gt.txt --outputbase=hkid.ocrb.exp0 --font='OCRB' --fonts_dir=/usr/share/fonts/`
 
+**Manipulate large number of .txt files**
+
+<details><summary><b>CLICK ME</b> - Manipulate multiple files</summary>
+
 ```shell
 N=3 # set accordingly to the number of files that you have
 for i in `seq 0 $N`; do
@@ -215,6 +219,8 @@ text2image --help
 
 ...
 ```
+
+</details>
 
 - **Step 4:** Generate `.tr` files
 
