@@ -129,7 +129,7 @@ sudo make install
 
 - unzip the file and activate jTessBoxEditor by executing `java -Xms128m -Xmx1024m -jar jTessBoxEditor.jar`
 
-## Training Tesseract
+## Training Tesseract (Generate Training Images and Box Files)
 
 - **Step 0:** Activate `jTessBoxEditor`
 
@@ -160,7 +160,7 @@ If everything works fine, we can delete `.tr` files and go to next step
 
 - **Step 3A:** We can also generate `.tif + .box` files from `.txt` file instead:
 	- Install `OCRB` package: `sudo apt update` and `sudo apt install fonts-ocr-b` (Uninstall package: `sudo apt remove fonts-ocr-b`)
-	- Package will be installed under `/usr/share/fonts`
+	- Package will be installed under `/usr/share/fonts/opentype/`
 	- Check the package `text2image --list_available_fonts --fonts_dir /usr/share/fonts`
 	- Run `fc-cache -vf`
 	- Open `jTessBoxEditor` and click `TIFF/Box Generator` button
@@ -170,6 +170,22 @@ If everything works fine, we can delete `.tr` files and go to next step
 
 - **Step 3B:** If the system could not find font named `OCR B Regular`, one way round this problem is to generate `.tif + .box` files from `.txt` using command line (Recommended)
 	- `text2image --text=./1_0PXvIdB0xeg7AgqfvUeJeA.png-0.gt.txt --outputbase=hkid.ocrb.exp0 --font='OCRB' --fonts_dir=/usr/share/fonts/`
+
+```shell
+USAGE: text2image
+
+text2image --help
+
+--exposure    	Exposure level in photocopier  (type:int default:0)
+--resolution  	Pixels per inch  (type:int default:300)
+--xsize  		Width of output image  (type:int default:3600)
+--ysize  		Height of output image  (type:int default:4800)
+--ptsize  		Size of printed text  (type:int default:12)
+--leading  		Inter-line space (in pixels)  (type:int default:12)
+--rotate_image  Rotate the image in a random way.  (type:bool default:true)
+
+...
+```
 
 - **Step 4:** Generate `.tr` files
 
