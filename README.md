@@ -91,7 +91,7 @@ sudo mv tessdata/* /usr/share/tesseract-ocr/share/tessdata/
 export TESSDATA_PREFIX=/usr/share/tesseract-ocr/share/tessdata
 ```
 
-## Install Qt-box-editor
+## Install Qt-box-editor (Optional)
 
 - Go to the github [zdenop/qt-box-editor](https://github.com/zdenop/qt-box-editor) and download the latest released source code
 - Compile the source code
@@ -131,6 +131,8 @@ sudo make install
 
 ## Training Tesseract
 
+- **Step 0:** Activate `jTessBoxEditor`
+
 - **Step 1:** Generate `.tif` files `[custom].[font name].exp[number].tif`, e.g. `id_passport.ocrb.exp0.tif`
 
 - **Step 2:** Generate `.box` files
@@ -157,10 +159,17 @@ If everything works fine, we can delete `.tr` files and go to next step
 - **Step 3:** Open each `.tif` file that you generated with jTessBoxEditor and correct Tesseract `*.box` file if it made any mistake (if no mistake found, then probably need not train it)
 
 - **Step 3A:** We can also generate `.tif + .box` files from `.txt` file instead:
+	- Install `OCRB` package: `sudo apt update` and `sudo apt install fonts-ocr-b` (Uninstall package: `sudo apt remove fonts-ocr-b`)
+	- Package will be installed under `/usr/share/fonts`
+	- Check the package `text2image --list_available_fonts --fonts_dir /usr/share/fonts`
+	- Run `fc-cache -vf`
 	- Open `jTessBoxEditor` and click `TIFF/Box Generator` button
 	- Select `text2image`, `Input` file and `Output` path
 	- Select `[custom].[font name].exp[number].tif` and finally generate `.tif + .box` files
 	- Note: If the system cannot find executable `text2image` under `/usr/bin/`, then `sudo cp /usr/share/tesseract-ocr/bin/text2image /usr/bin/`
+
+- **Step 3B:** If the system could not find font named `OCR B Regular`, one way round this problem is to generate `.tif + .box` files from `.txt` using command line (Recommended)
+	- `text2image --text=./1_0PXvIdB0xeg7AgqfvUeJeA.png-0.gt.txt --outputbase=hkid.ocrb.exp0 --font='OCRB' --fonts_dir=/usr/share/fonts/`
 
 - **Step 4:** Generate `.tr` files
 
