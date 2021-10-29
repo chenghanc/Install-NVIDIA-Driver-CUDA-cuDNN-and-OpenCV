@@ -172,6 +172,13 @@ If everything works fine, we can delete `.tr` files and go to next step
 	- `text2image --text=./1_0PXvIdB0xeg7AgqfvUeJeA.png-0.gt.txt --outputbase=hkid.ocrb.exp0 --font='OCRB' --fonts_dir=/usr/share/fonts/`
 
 ```shell
+N=3 # set accordingly to the number of files that you have
+for i in `seq 0 $N`; do
+    text2image --text=gt/name_field$i.txt --outputbase=name.ocrb.exp$i --font='OCRB' --fonts_dir=/usr/share/fonts/ --ptsize=14 --xsize=3600 --ysize=4800 --box_padding=1
+done
+```
+
+```shell
 USAGE: text2image
 
 text2image --help
@@ -183,6 +190,9 @@ text2image --help
 --ptsize  		Size of printed text  (type:int default:12)
 --leading  		Inter-line space (in pixels)  (type:int default:12)
 --rotate_image  Rotate the image in a random way.  (type:bool default:true)
+--box_padding  	Padding around produced bounding boxes  (type:int default:0)
+--margin  		Margin round edges of image  (type:int default:100)
+--char_spacing  Inter-character space in ems  (type:double default:0)
 
 ...
 ```
