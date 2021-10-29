@@ -179,6 +179,25 @@ done
 ```
 
 ```shell
+N=3 # set accordingly to the number of files that you have
+for i in `seq 0 $N`; do
+	tesseract name.ocrb.exp$i.tif name.ocrb.exp$i box.train
+done
+
+function wrap {
+    for i in `seq 0 $1`; do
+        echo "$2$i$3"
+    done
+}
+
+unicharset_extractor `wrap $N "name.ocrb.exp" ".box"`
+
+mftraining -F font_properties -U unicharset -O name.unicharset `wrap $N "name.ocrb.exp" ".tr"`
+
+cntraining `wrap $N "name.ocrb.exp" ".tr"`
+```
+
+```shell
 USAGE: text2image
 
 text2image --help
