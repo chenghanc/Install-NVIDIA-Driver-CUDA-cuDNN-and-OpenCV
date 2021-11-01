@@ -176,6 +176,8 @@ If everything works fine, we can delete `.tr` files and go to next step
 <details><summary><b>CLICK ME</b> - Manipulate multiple files</summary>
 
 ```shell
+# generate .tif + .box files from .txt file
+
 N=3 # set accordingly to the number of files that you have
 for i in `seq 0 $N`; do
     text2image --text=gt/name_field$i.txt --outputbase=name.ocrb.exp$i --font='OCRB' --fonts_dir=/usr/share/fonts/ --ptsize=14 --xsize=3600 --ysize=4800 --box_padding=1
@@ -183,6 +185,8 @@ done
 ```
 
 ```shell
+# generate .tr files
+
 N=3 # set accordingly to the number of files that you have
 for i in `seq 0 $N`; do
 	tesseract name.ocrb.exp$i.tif name.ocrb.exp$i box.train
@@ -194,7 +198,15 @@ function wrap {
     done
 }
 
+# generate .unicharset file
+
 unicharset_extractor `wrap $N "name.ocrb.exp" ".box"`
+
+# define font properties
+
+echo "ocrb 0 0 0 0 0" > font_properties
+
+# clustering
 
 mftraining -F font_properties -U unicharset -O name.unicharset `wrap $N "name.ocrb.exp" ".tr"`
 
