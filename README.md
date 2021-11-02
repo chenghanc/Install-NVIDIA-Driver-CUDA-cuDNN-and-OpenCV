@@ -37,6 +37,8 @@ sudo apt-get install libcairo2-dev
 sudo apt install libtesseract-dev
 ```
 
+## Install Leptonica [link](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
+
 ## Compile and run
 
 ```shell
@@ -70,6 +72,13 @@ sudo make training-install
 
 ## Language Data
 
+- Download the data files `https://github.com/tesseract-ocr/tessdata`
+
+```shell
+unzip tessdata.zip
+sudo mv tessdata/* /usr/share/tesseract-ocr/share/tessdata/
+export TESSDATA_PREFIX=/usr/share/tesseract-ocr/share/tessdata
+```
 
 ## Training Tesseract (Generate Training Images and Box Files)
 
