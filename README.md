@@ -77,15 +77,30 @@ sudo make training-install
 ```shell
 unzip tessdata.zip
 sudo mv tessdata/* /usr/share/tesseract-ocr/share/tessdata/
-export TESSDATA_PREFIX=/usr/share/tesseract-ocr/share/tessdata
 ```
 
+## Install Qt-box-editor (Optional) [link](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
+
+## Install jTessBoxEditor [link](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
+
 ## Training Tesseract (Generate Training Images and Box Files)
+
+<details><summary><b>CLICK ME</b> - Training Procedure</summary>
 
 - **Step 0:** Activate `jTessBoxEditor`
 
 - **Step 1:** Generate
 
+- **Step 10:** Check and test
+
+```shell
+tesseract --list-langs
+
+tesseract 20211101311.jpg stdout -l eng
+```
+
+
+</details>
 
 
 
@@ -93,3 +108,5 @@ export TESSDATA_PREFIX=/usr/share/tesseract-ocr/share/tessdata
 
 ## References
 
+1. [tesseract3](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
+2. [improve quality](http://coddingbuddy.com/article/51897036/how-can-i-improve-tesseract-results-quality)
