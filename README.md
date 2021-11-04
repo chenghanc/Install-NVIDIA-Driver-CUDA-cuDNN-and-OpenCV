@@ -3,15 +3,21 @@
 
 ## Uninstall Tesseract 3
 
+If you have installed Tesseract 3, uninstall it by running the following commands
+
 - Run `sudo make uninstall` in the `Tesseract` folder
 - Remove the `Tesseract` folder
 - Run `sudo rm -rf /usr/share/tesseract-ocr/`
 
 ## Download Tesseract OCR 5 source file
 
+Go to the download page and download the lastest released file
+
 [tesseract-5.0.0-rc1.tar](https://github.com/tesseract-ocr/tesseract/releases)
 
 ## Pre-requisites
+
+The following libraries need to be installed
 
 ```shell
 sudo apt-get install g++
@@ -25,6 +31,8 @@ sudo apt-get install zlib1g-dev
 
 ## Pre-requisites for training tools (Optional)
 
+The following libraries need to be installed if you plan to install the training tools
+
 ```shell
 sudo apt-get install libicu-dev
 sudo apt-get install libpango1.0-dev
@@ -33,6 +41,8 @@ sudo apt-get install libcairo2-dev
 
 ## Install Developer Tools used for training
 
+Run the following command if you wish to train custom dataset
+
 ```shell
 sudo apt install libtesseract-dev
 ```
@@ -40,6 +50,8 @@ sudo apt install libtesseract-dev
 ## Install Leptonica [link](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
 
 ## Compile and run
+
+Install Tesseract by running the following commands
 
 ```shell
 ./autogen.sh
@@ -59,11 +71,15 @@ source ~/.profile
 
 ## Check Version
 
+Check version by running the following command
+
 ```shell
 tesseract --version
 ```
 
 ## Build training tools
+
+Build training tools by running the following commands
 
 ```shell
 make training
@@ -73,6 +89,7 @@ sudo make training-install
 ## Language Data
 
 - Download the data files `https://github.com/tesseract-ocr/tessdata`
+- unzip the file and move to relevant folder
 
 ```shell
 unzip tessdata.zip
@@ -84,6 +101,8 @@ sudo mv tessdata/* /usr/share/tesseract-ocr/share/tessdata/
 ## Install jTessBoxEditor [link](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
 
 ## Training Tesseract (Generate Training Images and Box Files)
+
+Follow the instructions here [link](https://github.com/tesseract-ocr/tesstrain)
 
 <details><summary><b>CLICK ME</b> - Training Procedure</summary>
 
