@@ -114,6 +114,69 @@ git clone https://github.com/tesseract-ocr/tesstrain
 
 Go to the folder `tesstrain` and extract `ocrd-testset.zip` to `./data/foo-ground-truth` and run `make training`. If the dataset can be trained normally, it means that the current training environment is OK and we can start to prepare custom dataset and perform training
 
+**The output of successful training:**
+
+```shell
+Finished! Error rate = 1.134
+lstmtraining \
+--stop_training \
+--continue_from data/foo/checkpoints/foo_checkpoint \
+--traineddata data/foo/foo.traineddata \
+--model_output data/foo.traineddata
+Loaded file data/foo/checkpoints/foo_checkpoint, unpacking...
+```
+
+**Choose model name / Fine-tune / Ratio of training dataset:**
+
+The default model name is `foo`
+
+```shell
+grep -nr MODEL_NAME .
+
+...
+./Makefile:19:MODEL_NAME = foo
+...
+```
+
+We can give custom dataset a name when training model
+
+```shell
+make training MODEL_NAME=name_of_the_resulting_model
+
+name_of_the_resulting_model=foo or hkid etc
+```
+
+The default model is trained from scratch, the `START_MODEL` in Makefile is assigned an empty string
+
+```shell
+grep -nr START_MODEL .
+
+...
+./Makefile:40:START_MODEL =
+...
+```
+
+We can start fine-tuning from `eng.traineddata`
+
+```shell
+make training MODEL_NAME=name_of_the_resulting_model START_MODEL=eng
+```
+
+The ratio of training dataset is defined by the `RATIO_TRAIN` variable
+
+```shell
+grep -nr RATIO_TRAIN .
+
+...
+./Makefile:107:RATIO_TRAIN := 0.90
+...
+```
+
+Run `make help` to see all the possible targets and variables
+
+
+**How to train your custom dataset: Training Procedure**
+
 - **Step 0:** Provide ground truth
 
 - **Step 0:** Activate `jTessBoxEditor`
