@@ -102,9 +102,19 @@ sudo mv tessdata/* /usr/share/tesseract-ocr/share/tessdata/
 
 ## Training Tesseract (Generate Training Images and Box Files)
 
-Follow the instructions here [link](https://github.com/tesseract-ocr/tesstrain)
+Follow the instructions here [link](https://github.com/tesseract-ocr/tesstrain), [link](https://github.com/tesseract-ocr/tessdoc) and [link](https://github.com/livezingy/tesstrain-win)
 
 <details><summary><b>CLICK ME</b> - Training Procedure</summary>
+
+Before training your custom dataset, it is recommended to train [ocrd-testset.zip](https://github.com/tesseract-ocr/tesstrain/blob/main/ocrd-testset.zip) with sample ground truth first. This dataset consists of **line images** and **transcriptions**, line images have the extension `.tif`, transcriptions have the same name as the line images with the extension replaced by `.gt.txt` and must be single-line plain text. Download `tesstrain` by running the following command
+
+```shell
+git clone https://github.com/tesseract-ocr/tesstrain
+```
+
+Go to the folder `tesstrain` and extract `ocrd-testset.zip` to `./data/foo-ground-truth` and run `make training`. If the dataset can be trained normally, it means that the current training environment is OK and we can start to prepare custom dataset and perform training
+
+- **Step 0:** Provide ground truth
 
 - **Step 0:** Activate `jTessBoxEditor`
 
