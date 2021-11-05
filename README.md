@@ -200,6 +200,28 @@ cd plot
 ./plot_cer.sh
 ```
 
+**PoC for MRZ** [Dataset](https://github.com/DoubangoTelecom/tesseractMRZ)
+
+- Fine-tune from `tessdata_best/eng.traineddata`
+
+```shell
+nohup make training MODEL_NAME=mrz START_MODEL=eng TESSDATA=/usr/share/tesseract-ocr/share/tessdata_best MAX_ITERATIONS=30000 > plot/TESSTRAIN.LOG &
+
+Finished! Error rate = 0.021
+```
+
+![alt text](plot_ft.png)
+
+- Train from scratch
+
+```shell
+nohup make training MODEL_NAME=mrzscratch MAX_ITERATIONS=30000 > plot/TESSTRAIN.LOG &
+
+Finished! Error rate = 0.344
+```
+
+![alt text](plot_scratch.png)
+
 **How to train your custom dataset: Training Procedure**
 
 - **Step 0:** Provide ground truth
