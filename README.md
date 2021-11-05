@@ -105,8 +105,8 @@ sudo mv tessdata_best /usr/share/tesseract-ocr/share/
 ```
 
 - See [Segmentation fault when using integer models for LSTM training](https://github.com/tesseract-ocr/tesseract/issues/1573) for more informations
-- Only the **float models** in tessdata_best can be used for **lstmtraining**
-- Both tessdata and tessdata_fast have **integer models**
+	- Only the **float models** in tessdata_best can be used for **lstmtraining**
+	- Both tessdata and tessdata_fast have **integer models**
 
 ## Install Qt-box-editor (Optional) [link](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
 
@@ -186,6 +186,19 @@ grep -nr RATIO_TRAIN .
 
 Run `make help` to see all the possible targets and variables
 
+**Plotting:**
+
+```shell
+unzip ocrd-testset.zip -d data/ocrd-ground-truth
+nohup make training MODEL_NAME=ocrd START_MODEL=frk TESSDATA=/usr/share/tesseract-ocr/share/tessdata_best/ MAX_ITERATIONS=10000 > plot/TESSTRAIN.LOG &
+```
+
+Download [plotting scripts](https://github.com/tesseract-ocr/tesstrain/tree/ee5f0d33ef96bc51a00a3452cb1c818a910bbff6)
+
+```shell
+cd plot
+./plot_cer.sh
+```
 
 **How to train your custom dataset: Training Procedure**
 
