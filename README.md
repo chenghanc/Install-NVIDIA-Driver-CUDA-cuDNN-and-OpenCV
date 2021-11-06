@@ -213,7 +213,48 @@ nohup make training MODEL_NAME=mrz START_MODEL=eng TESSDATA=/usr/share/tesseract
 Finished! Error rate = 0.021
 ```
 
+The tree structure of the data folder
+
+```shell
+tree -L 2 data
+
+data
+├── eng
+│   ├── mrz.lstm
+│   ├── mrz.lstm-number-dawg
+│   ├── mrz.lstm-punc-dawg
+│   ├── mrz.lstm-recoder
+│   ├── mrz.lstm-unicharset
+│   ├── mrz.lstm-word-dawg
+│   └── mrz.version
+├── mrz
+│   ├── all-gt
+│   ├── all-lstmf
+│   ├── checkpoints
+│   ├── list.eval
+│   ├── list.train
+│   ├── mrz.charset_size=111.txt
+│   ├── mrz.numbers
+│   ├── mrz.punc
+│   ├── mrz.traineddata
+│   ├── mrz.unicharset
+│   ├── mrz.wordlist
+│   ├── my.unicharset
+│   └── unicharset
+├── mrz-ground-truth
+│   ├── ...
+│   ├── ...
+│   ├── zahlen.jpg-2.box
+│   ├── zahlen.jpg-2.gt.txt
+│   ├── zahlen.jpg-2.lstmf
+│   └── zahlen.jpg-2.tif
+├── mrz.traineddata
+└── radical-stroke.txt
+```
+
 Once the file `mrz.traineddata` is ready, you can copy it to `/usr/share/tesseract-ocr/share/tessdata/`
+
+Character Error rate:
 
 ![alt text](plot_ft.png)
 
@@ -224,6 +265,8 @@ nohup make training MODEL_NAME=mrzscratch MAX_ITERATIONS=30000 > plot/TESSTRAIN.
 
 Finished! Error rate = 0.344
 ```
+
+Character Error rate:
 
 ![alt text](plot_scratch.png)
 
