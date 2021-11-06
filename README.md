@@ -203,12 +203,17 @@ cd plot
 **PoC for MRZ** [Dataset](https://github.com/DoubangoTelecom/tesseractMRZ)
 
 - Fine-tune from `tessdata_best/eng.traineddata`
+	- Update the `xxx.numbers/xxx.punc/xxx.wordlist` in `data` folder
+	- The three files should be consistent with the **base traineddata** from which you are fine-tuning
+	- e.g. If you are fine-tuning from `eng.traineddata`, you could download `eng.numbers/eng.punc/eng.wordlist` from [langdata_lstm / eng](https://github.com/tesseract-ocr/langdata_lstm/tree/main/eng) and rename filenames separately: `mrz.numbers/mrz.punc/mrz.wordlist`
 
 ```shell
 nohup make training MODEL_NAME=mrz START_MODEL=eng TESSDATA=/usr/share/tesseract-ocr/share/tessdata_best MAX_ITERATIONS=30000 > plot/TESSTRAIN.LOG &
 
 Finished! Error rate = 0.021
 ```
+
+Once the file `mrz.traineddata` is ready, you can copy it to `/usr/share/tesseract-ocr/share/tessdata/`
 
 ![alt text](plot_ft.png)
 
@@ -222,22 +227,15 @@ Finished! Error rate = 0.344
 
 ![alt text](plot_scratch.png)
 
-**How to train your custom dataset: Training Procedure**
-
-- **Step 0:** Provide ground truth
-
-- **Step 0:** Activate `jTessBoxEditor`
-
-- **Step 1:** Generate
-
-- **Step 10:** Check and test
+- Check and test
 
 ```shell
 tesseract --list-langs
 
-tesseract 20211101311.jpg stdout -l eng
+tesseract 20211101311.jpg stdout -l mrz
 ```
 
+- Note: Images must be **TIFF** with the extension `.tif`or **PNG** with the extension `.png`
 
 </details>
 
