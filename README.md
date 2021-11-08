@@ -278,7 +278,12 @@ tesseract --list-langs
 tesseract 20211101311.jpg stdout -l mrz
 ```
 
-- Note: Images must be **TIFF** with the extension `.tif`or **PNG** with the extension `.png`
+- **Note:** Images must be **TIFF** with the extension `.tif` or **PNG** with the extension `.png`
+	- **Use mogrify tool for batch processing:** `mogrify -format tif *.jpg`
+
+- **Note:** How to prepare dataset
+	- Use this tip [@Shreeshrii's shell script](https://github.com/tesseract-ocr/tesstrain/issues/7#issuecomment-419714852) to generate line images for transcriptions from a full page
+
 
 </details>
 
