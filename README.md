@@ -283,9 +283,17 @@ tesseract 20211101311.tif stdout -l mrz
 
 - **Note:** How to prepare dataset
 	- Use this tip [@Shreeshrii's shell script](https://github.com/tesseract-ocr/tesstrain/issues/7#issuecomment-419714852) to generate line images for transcriptions from a full page
-	- Create empty `.gt.txt` files and cat files (sort by names)
+	- Create empty `.gt.txt` files and cat files (sort by names) and remove white space from file name
 
 ```shell
+# Remove white space from file name and rename it
+
+for f in *; do mv "$f" `echo $f | tr ' ' '-'`; done
+
+# Replace \(\) by AC
+
+for f in *; do mv "$f" `echo $f | tr '\(\)' 'AC'`; done
+
 # Create empty files
 
 find . -maxdepth 1 \( -name \*.jpg \) | awk '{print "touch "$1" "}' > gt.txt.sh
