@@ -270,12 +270,12 @@ Character Error rate:
 
 ![alt text](plot_scratch.png)
 
-- Check and test
+- Check and test (all images must be **TIFF** with the extension `.tif`)
 
 ```shell
 tesseract --list-langs
 
-tesseract 20211101311.jpg stdout -l mrz
+tesseract 20211101311.tif stdout -l mrz
 ```
 
 - **Note:** Images must be **TIFF** with the extension `.tif` or **PNG** with the extension `.png`
@@ -283,6 +283,19 @@ tesseract 20211101311.jpg stdout -l mrz
 
 - **Note:** How to prepare dataset
 	- Use this tip [@Shreeshrii's shell script](https://github.com/tesseract-ocr/tesstrain/issues/7#issuecomment-419714852) to generate line images for transcriptions from a full page
+	- Create empty `.gt.txt` files and cat files (sort by names)
+
+```shell
+# Create empty files
+
+find . -maxdepth 1 \( -name \*.jpg \) | awk '{print "touch "$1" "}' > gt.txt.sh
+
+sed -i -- 's/jpg/gt.txt/g' gt.txt.sh
+
+# cat files (sort by names)
+
+find . -maxdepth 1 \( -name \*.txt \) | sort -n | awk '{print "cat "$1" "}' > cat.gt.txt.sh
+```
 
 
 </details>
