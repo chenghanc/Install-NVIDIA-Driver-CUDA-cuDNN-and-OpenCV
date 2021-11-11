@@ -276,13 +276,16 @@ Character Error rate:
 tesseract --list-langs
 
 tesseract 20211101311.tif stdout -l mrz
+
+time tesseract 20211101311.tif stdout -l mrz # to measure execution time
 ```
 
 - **Note:** Images must be **TIFF** with the extension `.tif` or **PNG** with the extension `.png`
 	- **Use mogrify tool for batch processing:** `mogrify -format tif *.jpg`
 
 - **Note:** How to prepare dataset
-	- Use this tip [@Shreeshrii's shell script](https://github.com/tesseract-ocr/tesstrain/issues/7#issuecomment-419714852) to generate line images for transcriptions from a full page
+	- Use this tip [@Shreeshrii's shell script](https://github.com/tesseract-ocr/tesstrain/issues/7#issuecomment-419714852) to generate line images for transcriptions from a full page (Optional)
+	- Crop line images and assign labels (use any cropping tool which you prefer, e.g. Microsoft 365 OneDrive)
 	- Create empty `.gt.txt` files and cat files (sort by names) and remove white space from file name
 
 ```shell
