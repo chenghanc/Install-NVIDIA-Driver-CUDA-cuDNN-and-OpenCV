@@ -213,6 +213,26 @@ nohup make training MODEL_NAME=mrz START_MODEL=eng TESSDATA=/usr/share/tesseract
 Finished! Error rate = 0.021
 ```
 
+During the training we can see this kind of information
+
+```shell
+...
+At iteration 615/27600/27600, Mean rms=0.046000%, delta=0.018000%, char train=0.047000%, word train=0.900000%, skip ratio=0.000000%,  New worst char error = 0.047000 wrote checkpoint.
+
+At iteration 616/27700/27700, Mean rms=0.040000%, delta=0.007000%, char train=0.021000%, word train=0.500000%, skip ratio=0.000000%,  New best char error = 0.021000 wrote best model:data/mrz/checkpoints/mrz_0.021000_616_27700.checkpoint wrote checkpoint.
+...
+```
+
+where
+
+```shell
+616   : learning_iteration
+27700 : training_iteration
+27700 : sample_iteration
+```
+
+See [link](https://github.com/tesseract-ocr/tessdoc/blob/main/tess4/TrainingTesseract-4.00.md#iterations-and-checkpoints) for more informations
+
 The tree structure of the data folder
 
 ```shell
@@ -308,6 +328,38 @@ sed -i -- 's/jpg/gt.txt/g' gt.txt.sh
 find . -maxdepth 1 \( -name \*.txt \) | sort -n | awk '{print "cat "$1" "}' > cat.gt.txt.sh
 ```
 
+**PoC for Custom dataset + MRZ** [Dataset](https://github.com/DoubangoTelecom/tesseractMRZ)
+
+Starting with an existing trained model (`.traineddata`) requires much less iterations to achieve low error rates
+
+- Fine-tune from `eng.traineddata`
+
+```shell
+nohup make training MODEL_NAME=hkidmrz START_MODEL=eng TESSDATA=/usr/share/tesseract-ocr/share/tessdata_best/ RATIO_TRAIN=0.99 MAX_ITERATIONS=30000 > plot/TESSTRAIN.LOG &
+
+Finished! Error rate = 0.024
+```
+
+**Character Error Rate:**
+
+![alt text](eng.png)
+
+- Fine-tune from `ocrb.traineddata` [ocrb](https://github.com/Shreeshrii/tessdata_ocrb)
+
+```shell
+nohup make training MODEL_NAME=hkidmrz2 START_MODEL=ocrb TESSDATA=/usr/share/tesseract-ocr/share/tessdata RATIO_TRAIN=0.99 MAX_ITERATIONS=30000 > plot/TESSTRAIN.LOG &
+
+Finished! Error rate = 0.017
+```
+
+**Character Error Rate:**
+
+![alt text](ocrb.png)
+
+**How to improve accuracy:**
+
+- Duplicate incorrectly recognized images `10-20` times in your training dataset and fine-tune with an existing trained language `(eng, frk, ocrb... etc)` again might improve the engine
+
 
 </details>
 
@@ -319,3 +371,4 @@ find . -maxdepth 1 \( -name \*.txt \) | sort -n | awk '{print "cat "$1" "}' > ca
 
 1. [tesseract3](https://github.com/chenghanc/Install-NVIDIA-Driver-CUDA-cuDNN-and-OpenCV/tree/tesseract3)
 2. [improve quality](http://coddingbuddy.com/article/51897036/how-can-i-improve-tesseract-results-quality)
+3. [TrainingTesseract-4.00.md](https://github.com/tesseract-ocr/tessdoc/blob/main/tess4/TrainingTesseract-4.00.md)
