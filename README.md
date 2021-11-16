@@ -202,6 +202,8 @@ cd plot
 
 **PoC for MRZ** [Dataset](https://github.com/DoubangoTelecom/tesseractMRZ)
 
+Starting with an existing trained model (`.traineddata`) requires much less iterations to achieve low error rates
+
 - Fine-tune from `tessdata_best/eng.traineddata`
 	- Update the `xxx.numbers/xxx.punc/xxx.wordlist` in `data` folder
 	- The three files should be consistent with the **base traineddata** from which you are fine-tuning
@@ -329,8 +331,6 @@ find . -maxdepth 1 \( -name \*.txt \) | sort -n | awk '{print "cat "$1" "}' > ca
 ```
 
 **PoC for Custom dataset + MRZ** [Dataset](https://github.com/DoubangoTelecom/tesseractMRZ)
-
-Starting with an existing trained model (`.traineddata`) requires much less iterations to achieve low error rates
 
 - Fine-tune from `eng.traineddata`
 
